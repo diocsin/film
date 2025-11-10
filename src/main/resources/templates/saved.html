@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Movies</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Мои сохраненные фильмы</h1>
+        
+        <div class="navigation">
+            <a th:href="@{/}" class="nav-link">← Вернуться к поиску</a>
+        </div>
+
+        <div th:if="${movies.isEmpty()}" class="no-movies">
+            <p>Пока нет сохраненных фильмов. <a th:href="@{/}">Начать поиск</a></p>
+        </div>
+
+        <div class="movies-grid">
+            <div class="movie-card" th:each="movie : ${movies}">
+                <img th:if="${movie.poster != null and movie.poster != 'N/A'}" 
+                     th:src="${movie.poster}" 
+                     alt="Poster" 
+                     class="movie-poster">
+                <div class="movie-info">
+                    <h3 th:text="${movie.title}"></h3>
+                    <p><strong>Год:</strong> <span th:text="${movie.releaseYear}"></span></p>
+                    <p th:if="${movie.imdbRating != null}">
+                        <strong>Рейтинг IMDb:</strong> <span th:text="${movie.imdbRating}"></span>
+                    </p>
+                    <p th:if="${movie.genres != null}">
+                        <strong>Жанр:</strong> <span th:text="${movie.genres}"></span>
+                    </p>
+                    <p th:if="${movie.director != null and movie.director != 'N/A'}">
+                        <strong>Режиссер:</strong> <span th:text="${movie.director}"></span>
+                    </p>
+                    <p th:if="${movie.actors != null and movie.actors != 'N/A'}">
+                        <strong>Актеры:</strong> <span th:text="${movie.actors}"></span>
+                    </p>
+                    <p th:if="${movie.plot != null and movie.plot != 'N/A'}">
+                        <strong>Описание:</strong> <span th:text="${movie.plot}"></span>
+                    </p>
+                    <p class="saved-date">
+                        <small>Сохранено: <span th:text="${#temporals.format(movie.savedAt, 'dd.MM.yyyy HH:mm')}"></span></small>
+                    </p>
+                    <div class="movie-buttons">
+                        <button class="delete-button" th:onclick="'deleteMovie(' + ${movie.id} + ')'">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>

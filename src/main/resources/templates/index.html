@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Поиск фильмов</h1>
+        
+        <div class="search-section">
+            <form id="searchForm">
+                <div class="form-group">
+                    <label for="title">Название фильма:</label>
+                    <input type="text" id="title" name="title" required placeholder="Введите название фильма">
+                </div>
+                
+                <button type="submit">Поиск</button>
+            </form>
+        </div>
+
+        <div id="error" class="error-message" style="display: none;"></div>
+
+        <div id="loader" class="loader" style="display: none;">
+            <div class="spinner"></div>
+            <p>Поиск фильма...</p>
+        </div>
+
+        <div id="results" class="results" style="display: none;">
+            <h2>Результаты поиска:</h2>
+            <div class="movie-card" id="movieCard">
+                <img id="poster" src="" alt="Movie Poster" style="display: none;">
+                <div class="movie-info">
+                    <h3 id="movieTitle"></h3>
+                    <p><strong>Год:</strong> <span id="movieYear"></span></p>
+                    <p><strong>Рейтинг IMDb:</strong> <span id="movieRating"></span></p>
+                    <p><strong>Жанр:</strong> <span id="movieGenre"></span></p>
+                    <p><strong>Режиссер:</strong> <span id="movieDirector"></span></p>
+                    <p><strong>Актеры:</strong> <span id="movieActors"></span></p>
+                    <p><strong>Длительность:</strong> <span id="movieRuntime"></span></p>
+                    <p><strong>Возрастной рейтинг:</strong> <span id="movieRated"></span></p>
+                    <p><strong>Ключевые слова:</strong> <span id="movieWriter"></span></p>
+                    <p><strong>Описание:</strong> <span id="moviePlot"></span></p>
+                    <button id="saveBtn" class="save-button" onclick="saveMovie()">Сохранить фильм</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a th:href="@{/saved}" class="nav-link">Посмотреть сохраненные фильмы →</a>
+        </div>
+    </div>
+
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>
+
