@@ -40,7 +40,7 @@ services:
   # Второй сервис из другого репозитория
   movie_processing_service:
     build:
-      context: ../movie_processing_service  # Путь к другому репозиторию (укажите правильный путь)
+      context: ../film_proccessor  # Путь к другому репозиторию (укажите правильный путь)
       dockerfile: Dockerfile
     container_name: movie_processing_service
     ports:
