@@ -37,6 +37,24 @@ services:
       - film-network
     restart: unless-stopped
 
+  # Второй сервис из другого репозитория
+  movie_processing_service:
+    build:
+      context: ../movie_processing_service  # Путь к другому репозиторию (укажите правильный путь)
+      dockerfile: Dockerfile
+    container_name: movie_processing_service
+    ports:
+      - "8081:8081"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - film-network
+    restart: unless-stopped
+
 volumes:
   rabbitmq_data:
 
