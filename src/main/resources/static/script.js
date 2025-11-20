@@ -116,16 +116,16 @@ function displayMovie(movie) {
         poster.style.display = 'none';
     }
     
-    document.getElementById('movieTitle').textContent = movie.Title;
-    document.getElementById('movieYear').textContent = movie.Year || 'N/A';
+    document.getElementById('movieTitle').textContent = movie.title;
+    document.getElementById('movieYear').textContent = movie.year || 'N/A';
     document.getElementById('movieRating').textContent = movie.imdbRating || 'N/A';
-    document.getElementById('movieGenre').textContent = movie.Genre || 'N/A';
-    document.getElementById('movieDirector').textContent = movie.Director || 'N/A';
-    document.getElementById('movieActors').textContent = movie.Actors || 'N/A';
-    document.getElementById('movieRuntime').textContent = movie.Runtime || 'N/A';
-    document.getElementById('movieRated').textContent = movie.Rated || 'N/A';
-    document.getElementById('movieWriter').textContent = movie.Writer || 'N/A';
-    document.getElementById('moviePlot').textContent = movie.Plot || 'N/A';
+    document.getElementById('movieGenre').textContent = movie.genre || 'N/A';
+    document.getElementById('movieDirector').textContent = movie.director || 'N/A';
+    document.getElementById('movieActors').textContent = movie.actors || 'N/A';
+    document.getElementById('movieRuntime').textContent = movie.runtime || 'N/A';
+    document.getElementById('movieRated').textContent = movie.rated || 'N/A';
+    document.getElementById('movieWriter').textContent = movie.writer || 'N/A';
+    document.getElementById('moviePlot').textContent = movie.plot || 'N/A';
     
     document.getElementById('results').style.display = 'block';
 }

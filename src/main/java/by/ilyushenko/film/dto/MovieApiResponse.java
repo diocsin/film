@@ -8,24 +8,24 @@ import lombok.Data;
 public class MovieApiResponse {
 
     private String imdbID;
-    private String Title;
-    private String Year;
-    private String Rated;
-    private String Released;
-    private String Runtime;
-    private String Genre;
-    private String Director;
-    private String Writer;
-    private String Actors;
-    private String Plot;
-    private String Language;
-    private String Country;
-    private String Awards;
-    private String Poster;
-    private String BoxOffice;
-    private String Production;
+    private String title;
+    private String year;
+    private String rated;
+    private String released;
+    private String runtime;
+    private String genre;
+    private String director;
+    private String writer;
+    private String actors;
+    private String plot;
+    private String language;
+    private String country;
+    private String awards;
+    private String poster;
+    private String boxOffice;
+    private String production;
     private String imdbRating;
-    private String Response;
-    private String Error;
+    private String response;
+    private String error;
 }
 
